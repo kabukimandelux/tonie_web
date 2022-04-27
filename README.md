@@ -25,7 +25,7 @@ You need to provide 3 things:
 - Upload entire subdirs to the Tonie
 
 ## ToDo
-- Limited to 1 creative Tonie, currently only owning one but will try to add
+- Limited to 1 creative Tonie, currently owning only one but will try to add support
 - Uploading single songs instead of entire directory
 
 ![image](https://user-images.githubusercontent.com/18744493/165516423-e82fc4ac-1326-4e73-aef9-bedd35982ac3.png)
