@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<form method="post" action="{{ url_for('upload') }}">
+{% for dir in dirs %}
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+  <button type="submit" class="btn btn-primary" name="choice" value="{{ loop.index }}"><i class="bi bi-cloud-upload"></i> Hochladen</button>
+  <label class="form-check-label" for="flexCheckDefault"> {{ loop.index }} - {{dir}} </li>
+  </label>
+</ul>
+
+{% endfor %}
+
+</form>
+
+{% endblock %}

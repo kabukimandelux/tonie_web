@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Schlüssel</th>
+      <th scope="col">Wert</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for key in status %}
+    <tr>
+      <th scope="row">{{loop.index}} </th>
+      <td>{{key}}</td>
+      <td class="text-nowrap">{{status[key]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<div class="col-lg-6">
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Schlüssel</th>
+        <th scope="col">Wert</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for key in kreativTonieInfo %}
+      <tr>
+        <th scope="row">{{loop.index}} </th>
+        <td>{{key}}</td>
+        <td class="text-nowrap" >{{kreativTonieInfo[key]}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+{% endblock %}

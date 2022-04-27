@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}My{% endblock %}
+{% block content %}
+<div class="col d-flex justify-content-center">
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{properties['name']}}</h5>
+      <p class="card-text">Letzte Aktualisierung {{properties['lastUpdate']}}
+        Speicherplatz:
+      </p>
+      <div class="progress w-50 " >         
+        <div class="progress-bar" role="progressbar" style="width: {{capacity}}%" aria-valuenow="{{capacity}}" aria-valuemin="0" aria-valuemax="100">{{capacity}}%</div>
+    </div>
+      <br>
+      <a href="{{url_for ('chapters')}}" class="btn btn-primary">Kapitel</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

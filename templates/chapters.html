@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<form method="post" action="{{ url_for('chapters') }}">
+<ul class="list-group">
+    {% for chapter in chapters %}
+    <li class="list-group-item"><i class="bi bi-file-music"></i> - {{chapter}}   <button type="submit" class="btn btn-danger" name="remove" value="{{ loop.index }}"><i class="bi bi-trash"></i> Löschen</button>
+        <label class="form-check-label" for="flexCheckDefault"> </li>
+        </label></li>
+    {% endfor %}
+  </ul>
+</form>
+
+{% endblock %}
