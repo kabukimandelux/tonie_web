@@ -26,18 +26,24 @@ def list_kreativtonies(householdID):
 
 def upload_audio(householdID, kreativTonieID):
     # chose upload directory
+    files = []
     dirs = os.listdir(basedir)
     for dir in enumerate(dirs):
         print(dir)
     upload_dir = int(input("Chose upload directory: "))
-    for file in os.listdir(basedir+dirs[upload_dir]):
-        title = file.strip('.m4a')	
+    files = os.listdir(basedir+dirs[upload_dir])
+    files.sort()
+    for file in files:
+        title = file.strip('.m4a')
         print(title)
         api.households[householdID].creativetonies[kreativTonieID].upload(basedir+dirs[upload_dir]+'/'+file, title)
 
 def upload_choice(householdID, kreativTonieID,upload_dir):
+    files = []
     dirs = os.listdir(basedir)
-    for file in os.listdir(basedir+dirs[upload_dir]):
+    files = os.listdir(basedir+dirs[upload_dir])
+    files.sort()
+    for file in files:
         title = file.strip('.m4a')	
         print(title)
         api.households[householdID].creativetonies[kreativTonieID].upload(basedir+dirs[upload_dir]+'/'+file, title)
@@ -109,9 +115,10 @@ def chapters():
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
+    number = []
     dirs = os.listdir(basedir)
-    for dir in enumerate(dirs):
-        print(dir)
+    for i, dir in enumerate(dirs):
+        number.append(len(os.listdir(basedir+dirs[i])))
     capacity = refresh_capacity(householdID, kreativTonieID)
     if request.method == 'POST':
         choice = int(request.form.get('choice'))-1
@@ -119,7 +126,7 @@ def upload():
         upload_choice(householdID, kreativTonieID, choice)
         flash('Fertig !','alert-success')
         return redirect(url_for('upload'))
-    return render_template('upload.html', dirs=dirs, capacity=capacity,page = 'upload')
+    return render_template('upload.html', dirs=dirs, capacity=capacity,number=number,page = 'upload')
 
 @app.route("/delete", methods=['GET', 'POST'])
 def delete():
@@ -134,4 +141,4 @@ def delete():
     return render_template("delete.html", capacity=capacity,page='delete')
 
 if __name__ == "__main__":
-    app.run('0.0.0.0', 5000)
+    app.run('0.0.0.0', 5000, debug=True)
