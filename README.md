@@ -13,7 +13,7 @@ You need to provide 3 things:
 - a folder where you put subdirectories with music or songs in them
 
         docker image build -t tonie_web .
-        docker run -p 5000:5000 -e MYTONIES_USER=youremail -e MYONIES_PASS=yourpass --mount type=bind,source=/yourhostdir,target=/app/upload tonie_web:latest
+        docker run -p 5000:5000 -e MYTONIES_USER=youremail -e MYTONIES_PASS=yourpass --mount type=bind,source=/yourhostdir,target=/app/upload tonie_web:latest
 
 ## Features
 ![image](https://user-images.githubusercontent.com/18744493/165516260-d04ec3f1-448b-4793-9c02-021254340908.png)
