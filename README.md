@@ -13,10 +13,10 @@ You need to provide 3 things:
 - a folder where you put subdirectories with music or songs in them
 
         docker image build -t tonie_web .
-        docker run -p 5000:5000 -e MYTONIES_USER=youremail -e MYONIES_PASS=yourpass --mount type=bind,source=/yourhostdir,target=/app/upload tonie_web:latest
+        docker run -p 5000:5000 -e MYTONIES_USER=youremail -e MYTONIES_PASS=yourpass --mount type=bind,source=/yourhostdir,target=/app/upload tonie_web:latest
 
 ## Features
-![image](https://user-images.githubusercontent.com/18744493/165516260-d04ec3f1-448b-4793-9c02-021254340908.png)
+![image](https://user-images.githubusercontent.com/18744493/166158380-a21ee0dd-1cbb-4f77-9a82-610a72f2ca7a.png)
 
 
 - View all chapters=songs on your creative Tonie
@@ -25,7 +25,7 @@ You need to provide 3 things:
 - Upload entire subdirs to the Tonie
 
 ## ToDo
-- Limited to 1 creative Tonie, currently only owning one but will try to add
+- Limited to 1 creative Tonie, currently owning only one but will try to add support
 - Uploading single songs instead of entire directory
 
 ![image](https://user-images.githubusercontent.com/18744493/165516423-e82fc4ac-1326-4e73-aef9-bedd35982ac3.png)

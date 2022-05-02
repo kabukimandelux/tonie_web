@@ -6,6 +6,7 @@
 {% for dir in dirs %}
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
+<<<<<<< HEAD
       <div>
         <input class="form-check-input" name="checkbox" type="checkbox" value="True" id="flexCheckChecked" checked>
         <label class="form-check-label" for="flexCheckChecked">
@@ -14,6 +15,10 @@
   </div>
   <label class="form-check-label" for="flexCheckDefault"> {{ loop.index }} - {{dir}} <span class="badge bg-primary">{{number[loop.index-1]}}
   </span>
+=======
+  <button type="submit" class="btn btn-primary" name="choice" value="{{ loop.index }}"><i class="bi bi-cloud-upload"></i> Hochladen</button>
+  <label class="form-check-label" for="flexCheckDefault"> {{ loop.index }} - {{dir}} <span class="badge badge-primary">{{number[loop.index-1]}}</span></li>
+>>>>>>> 92b8127663c96793de3c3607d592ed8a84b44c09
   </label>
 </ul>
 
@@ -21,4 +26,8 @@
 
 </form>
 a
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> 92b8127663c96793de3c3607d592ed8a84b44c09
