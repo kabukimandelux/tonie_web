@@ -108,15 +108,7 @@ def upload():
     capacity = refresh_capacity(householdID, kreativTonieID)
     if request.method == 'POST':
         choice = int(request.form.get('choice'))-1
-        checked = request.form.get('checkbox')
-        print ("Result from form " + str(checked)) 
-        if checked == None:
-            flash ('Kein Titel gewählt','alert-danger')
-        else:
-            for selection in checked:
-                #upload_choice(householdID, kreativTonieID, choice)
-                print("Uploaded " + str(selection))
-        #upload_choice(householdID, kreativTonieID, choice)
+        upload_choice(householdID, kreativTonieID, choice)
         flash('Fertig !','alert-success')
         return redirect(url_for('upload'))
     return render_template('upload.html', dirs=dirs, capacity=capacity,number=number,page = 'upload')
@@ -124,6 +116,7 @@ def upload():
 @app.route("/delete", methods=['GET', 'POST'])
 def delete():
     if request.method == 'POST':
+        print("for get result " + str(request.form.get('deleteall')))
         if request.form.get('deleteall') == 'DELETE':
             delete_all(householdID, kreativTonieID)
             flash('Kreativ Tonie ' + str(kreativTonieID) + ' gelöscht','alert-success')
