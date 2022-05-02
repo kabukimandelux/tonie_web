@@ -1,4 +1,4 @@
-# tonies_web
+# tonie_web
 Web Interface to Manage / Upload Songs to a TonieBox KreativTonie  
 Build using the Python Tonie Api https://github.com/moritzj29/tonie_api and Flask  
 Feel free to improve the code, I'm a python noob 
