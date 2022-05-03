@@ -11,7 +11,8 @@ You need to provide 3 things:
 - your mytonies user
 - your mytonies pass
 - a folder where you put subdirectories with music or songs in them
-
+Git clone this repo in a folder create a docker:
+  
         docker image build -t tonie_web .
         docker run -p 5000:5000 -e MYTONIES_USER=youremail -e MYTONIES_PASS=yourpass --mount type=bind,source=/yourhostdir,target=/app/upload tonie_web:latest
 
