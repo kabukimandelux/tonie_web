@@ -65,6 +65,7 @@ kreativTonieID = list_kreativtonies(householdID)[1]
 
 @app.route("/")
 def home():
+    api=TonieAPI(username, password)
     list_household()
     global householdID, kreativTonieID, capacity
     householdID = list_household()[1]
