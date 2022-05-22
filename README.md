@@ -1,4 +1,4 @@
-# tonies_web
+# tonie_web
 Web Interface to Manage / Upload Songs to a TonieBox KreativTonie  
 Build using the Python Tonie Api https://github.com/moritzj29/tonie_api and Flask  
 Feel free to improve the code, I'm a python noob 
@@ -11,7 +11,8 @@ You need to provide 3 things:
 - your mytonies user
 - your mytonies pass
 - a folder where you put subdirectories with music or songs in them
-
+- Git clone this repo in a folder create a docker:
+  
         docker image build -t tonie_web .
         docker run -p 5000:5000 -e MYTONIES_USER=youremail -e MYTONIES_PASS=yourpass --mount type=bind,source=/yourhostdir,target=/app/upload tonie_web:latest
 
