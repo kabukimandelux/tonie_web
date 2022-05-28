@@ -8,17 +8,24 @@ logging.getLogger().setLevel(logging.INFO)
 username = os.environ['MYTONIES_USER']
 password = os.environ['MYTONIES_PASS']
 
-api=TonieAPI(username, password)
-status = api.me
 basedir = 'upload/'
 
+global householdID, kreativTonieID
+
+app = Flask(__name__)
+app.secret_key = b'_5#y2Lfqf"agF4Q8z\n\xec]/'
+
 def list_household():
+    global api, householdID, status
+    api=TonieAPI(username, password)
+    status = api.me
     householdsjson = api.households_update()
-    for households in enumerate(householdsjson.keys()):
-        print(households)
-    return households
+    for householdID in enumerate(householdsjson.keys()):
+        print("These are the Household Ids" + str(householdID))
+    return householdID
     
 def list_kreativtonies(householdID):
+    global kreativTonieID
     kreativTonieIDjson = api.households[householdID].creativetonies_update()
     for kreativTonieID in enumerate(kreativTonieIDjson.keys()):
         print(kreativTonieID)
@@ -57,16 +64,9 @@ def delete_chapter(householdID, kreativTonieID, chapter):
     chapters = api.households[householdID].creativetonies[kreativTonieID].chapters
     return chapters
 
-app = Flask(__name__)
-app.secret_key = b'_5#y2Lfqf"agF4Q8z\n\xec]/'
-global householdID, kreativTonieID, capacity
-householdID = list_household()[1]
-kreativTonieID = list_kreativtonies(householdID)[1]
-
 @app.route("/")
 def home():
     list_household()
-    global householdID, kreativTonieID, capacity
     householdID = list_household()[1]
     kreativTonieID = list_kreativtonies(householdID)[1]
     capacity = refresh_capacity(householdID, kreativTonieID)
@@ -77,7 +77,6 @@ def home():
 @app.route("/info")
 def info():
     list_household()
-    global householdID, kreativTonieID
     householdID = list_household()[1]
     kreativTonieID = list_kreativtonies(householdID)[1]
     kreativTonieInfo = api.households[householdID].creativetonies[kreativTonieID].properties
